@@ -4,71 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HKD → USD</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --line: #334155;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #1e3a5f, var(--bg));
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .card {
-      width: min(420px, 100%);
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-    }
-    h1 { margin: 0 0 6px; font-size: 1.5rem; }
-    p { margin: 0 0 22px; color: var(--muted); font-size: 0.95rem; }
-    label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--muted); }
-    input {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: #0f172a;
-      color: var(--text);
-      font-size: 1.15rem;
-    }
-    input:focus { outline: 2px solid var(--accent); border-color: transparent; }
-    button {
-      margin-top: 14px;
-      width: 100%;
-      padding: 12px;
-      border: 0;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #0f172a;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover { filter: brightness(1.08); }
-    .result {
-      margin-top: 20px;
-      padding: 16px;
-      border-radius: 10px;
-      background: #0f172a;
-      border: 1px solid var(--line);
-    }
-    .result strong { font-size: 1.6rem; }
-    .error { color: #fca5a5; }
-    .meta { margin-top: 10px; font-size: 0.8rem; color: var(--muted); }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <main class="card">
@@ -76,7 +12,16 @@
     <p>Convert Hong Kong dollars to US dollars.</p>
     <form id="form">
       <label for="hkd">Amount in HKD</label>
-      <input id="hkd" name="hkd" type="number" min="0" step="0.01" value="100" required>
+      <input
+        id="hkd"
+        name="hkd"
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        spellcheck="false"
+        value="100"
+        required
+      >
       <button type="submit">Convert</button>
     </form>
     <div class="result" id="result">

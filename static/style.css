@@ -1,0 +1,117 @@
+:root {
+  color-scheme: light dark;
+  --bg: #e8f4ff;
+  --bg-glow: #b8dcff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0284c7;
+  --accent-text: #ffffff;
+  --line: #c5d4e8;
+  --field: #f4f8fc;
+  --error: #b91c1c;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --bg-glow: #1e3a5f;
+    --card: #1e293b;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-text: #0f172a;
+    --line: #334155;
+    --field: #0f172a;
+    --error: #fca5a5;
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, var(--bg-glow), var(--bg));
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(420px, 100%);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+h1 { margin: 0 0 6px; font-size: 1.5rem; }
+
+p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--text);
+  font-size: 1.15rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  border-color: transparent;
+}
+
+button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.08); }
+
+.result {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--field);
+  border: 1px solid var(--line);
+}
+
+.result strong { font-size: 1.6rem; }
+
+.error { color: var(--error); }
+
+.meta {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

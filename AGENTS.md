@@ -9,7 +9,7 @@ Follow these rules for this repo. Cursor also loads `.cursor/rules/`.
 - Prefer the standard library (`urllib`, `json`) over new HTTP clients.
 - Validate user input and return JSON errors with HTTP 400 for bad amounts.
 - Keep a documented fallback FX rate if the live API fails.
-- HTML lives in `templates/`. Keep CSS in the template unless the UI grows.
+- HTML lives in `templates/`. CSS lives in `static/style.css` and follows `prefers-color-scheme`.
 - Match existing naming: `fetch_rate`, `FALLBACK_RATE`, `RATE_URL`.
 
 ```python
