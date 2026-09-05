@@ -1,0 +1,14 @@
+---
+description: Branch names, commits, and what not to check in
+alwaysApply: true
+---
+
+# Git
+
+- Branches: `cursor/short-description`.
+- Commit only when asked. Push only when asked.
+- Ignore `.venv/`, `__pycache__/`, secrets.
+- Message: imperative, why not a file list. Example: `Add a small Flask page to convert HKD to USD.`
+- No `git config` changes, `--no-verify`, force push, or amending pushed commits.
+
+See `AGENTS.md` for the full project conventions.

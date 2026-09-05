@@ -1,0 +1,22 @@
+---
+description: Python and Flask conventions for the HKD converter
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python
+
+- Keep a single Flask app in `app.py`. Do not introduce FastAPI, Django, or extra deps unless asked.
+- Python 3.10+ types. Stdlib `urllib` + `json` for the FX fetch.
+- Catch a narrow set of exceptions and fall back to `FALLBACK_RATE`.
+- Validate convert payloads; invalid or negative HKD returns 400 JSON.
+
+```python
+# Bad
+except Exception:
+    pass
+
+# Good
+except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError):
+    return FALLBACK_RATE, "peg fallback"
+```
